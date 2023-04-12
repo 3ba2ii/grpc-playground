@@ -11,3 +11,7 @@ const client = new todoPackage.Todo(
 client.createTodo({ id: -1, text: 'hey' }, (error: any, response: any) => {
   console.log(`🚀 ~ file: main.ts:12 ~ response:`, response, error);
 });
+
+client.readTodos({}, (error: any, response: any) => {
+  console.log(`🚀 ~ file: main.ts:15 ~ response:`, response);
+});
