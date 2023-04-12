@@ -10,20 +10,8 @@ const todoPackage = grpcObject.todoPackage as any;
 const server = new grpc.Server();
 
 server.addService(todoPackage.Todo.service, {
-  createTodo: (
-    call: any,
-    callback: (error: Error | null, response: any) => void
-  ) => {
-    console.log(call.request);
-    // callback(null, {});
-  },
-  readTodos: (
-    call: any,
-    callback: (error: Error | null, response: any) => void
-  ) => {
-    console.log(call.request);
-    // callback(null, {});
-  },
+  createTodo,
+  readTodos,
 });
 
 //uses HTTP/2, it needs to be secured,so we will use createInsecure for now

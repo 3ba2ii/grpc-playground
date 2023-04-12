@@ -1,7 +1,13 @@
+export const todos = [];
+
 export function createTodo(
   call: any,
   callback: (error: Error | null, response: any) => void
 ) {
-  console.log(call.request);
-  callback(null, {});
+  const todoItem = {
+    id: todos.length + 1,
+    text: call.request.text,
+  };
+  todos.push(todoItem);
+  callback(null, todoItem);
 }
