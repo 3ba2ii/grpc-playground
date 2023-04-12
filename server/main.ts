@@ -2,6 +2,7 @@ import grpc from 'grpc';
 import { loadSync } from '@grpc/proto-loader';
 import { createTodo } from './functions/createTodo';
 import { readTodos } from './functions/readTodos';
+import { readTodoStream } from './functions/readTodoStream';
 
 const packageDef = loadSync('todo.proto', {});
 const grpcObject = grpc.loadPackageDefinition(packageDef);
@@ -12,6 +13,7 @@ const server = new grpc.Server();
 server.addService(todoPackage.Todo.service, {
   createTodo,
   readTodos,
+  readTodoStream,
 });
 
 //uses HTTP/2, it needs to be secured,so we will use createInsecure for now
